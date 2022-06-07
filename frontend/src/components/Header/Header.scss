@@ -1,0 +1,125 @@
+@import "../../assets/styles/main.scss";
+
+.header {
+  padding: 25px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__logo {
+    width: 28px;
+    height: 28px;
+    animation: 10s linear 0s normal none infinite running rot;
+    -webkit-animation: 10s linear 0s normal none infinite running rot;
+    transition: $transition;
+  }
+  @keyframes rot {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes rot {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  &__menu {
+    &_signin {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  &__location-items {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  &__location-item {
+    margin-right: 15px;
+
+    &_lang {
+      padding: 5px 15px;
+      display: flex;
+      align-items: center;
+      background-color: #f3f3f3;
+      border-radius: 25px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__btn-navlink {
+    @include mainText;
+
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    background-color: $gray2;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: $transition;
+
+    &:hover {
+      background-color: $white;
+      text-decoration: none;
+    }
+
+    &_active {
+      text-decoration: none;
+      background-color: $white;
+      background-position: left;
+      background-repeat: no-repeat;
+      background-size: 25px;
+      background-position: 10% 50%;
+    }
+  }
+
+  &__btn-sign {
+    @include mainText;
+
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    color: $black;
+    text-decoration: none;
+    transition: $transition;
+
+    &:hover {
+      color: $skyBlue;
+    }
+  }
+
+  &__btn-lang {
+    @include mainText;
+
+    margin-right: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &_active {
+      text-decoration: underline;
+    }
+
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+}
