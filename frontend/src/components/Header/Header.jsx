@@ -7,6 +7,8 @@ import './Header.scss';
 import { path } from '../../utils/constants/constants';
 import { localize } from '../../utils/constants/locales/localize';
 
+import LangSwitch from '../../ui/LangSwitch/LangSwitch';
+
 import logo from '../../assets/images/logo.png';
 
 function Header({
@@ -39,15 +41,15 @@ function Header({
   return (
     <header className="header">
       {!loggedIn && (
-      <NavLink
-        to={path.main}
-        className={`header__logo ${isLogo ? 'header__logo_true' : 'header__logo_false'}`}
-      >
-        <img
-          src={logo}
-          alt="logo"
-        />
-      </NavLink>
+        <NavLink
+          to={path.main}
+          className={`header__logo ${isLogo ? 'header__logo_true' : 'header__logo_false'}`}
+        >
+          <img
+            src={logo}
+            alt="logo"
+          />
+        </NavLink>
       )}
       <div className="header__menu_signin">
         <nav className="header__nav-sign">
@@ -96,27 +98,7 @@ function Header({
             )}
 
             <li className="header__location-item header__location-item_lang">
-              <button
-                type="button"
-                onClick={() => handleLang('RU')}
-                className="header__btn-lang"
-              >
-                {userLang === 'RU' ? 'RU' : 'ru'}
-              </button>
-              <button
-                type="button"
-                onClick={() => handleLang('EN')}
-                className="header__btn-lang"
-              >
-                {userLang === 'EN' ? 'EN' : 'en'}
-              </button>
-              <button
-                type="button"
-                onClick={() => handleLang('DE')}
-                className="header__btn-lang"
-              >
-                {userLang === 'DE' ? 'DE' : 'de'}
-              </button>
+              <LangSwitch />
             </li>
           </ul>
         </nav>
