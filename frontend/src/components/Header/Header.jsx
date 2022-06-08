@@ -15,28 +15,11 @@ function Header({
   userLang,
   loggedIn,
   logOut,
-  handleGetUserInfo,
-  handleEditUserLang,
-  handleLangNotLogged,
 
   isLogo,
 }) {
   const location = useLocation();
   const locale = localize(userLang);
-
-  const handleLang = async (lang) => {
-    if (loggedIn) {
-      const token = localStorage.getItem('token');
-
-      await handleEditUserLang(token, lang);
-      await handleGetUserInfo(token);
-    } else {
-      localStorage.setItem('lang', lang);
-
-      await handleLangNotLogged(lang);
-      localize(lang);
-    }
-  };
 
   return (
     <header className="header">
@@ -113,9 +96,6 @@ export default inject(({ UserStore }) => {
     userLang,
     loggedIn,
     logOut,
-    handleGetUserInfo,
-    handleEditUserLang,
-    handleLangNotLogged,
   } = UserStore;
 
   return {
@@ -123,8 +103,5 @@ export default inject(({ UserStore }) => {
     userLang,
     loggedIn,
     logOut,
-    handleGetUserInfo,
-    handleEditUserLang,
-    handleLangNotLogged,
   };
 })(observer(Header));
